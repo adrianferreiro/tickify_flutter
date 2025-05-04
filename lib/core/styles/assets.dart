@@ -10,6 +10,6 @@ class Assets {
   ///
   /// Network Assets
   ///
-  static String buildPokemonSpriteUrl(int index) =>
-      'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/$index.svg';
+  static String buildTicketSpriteUrl(int index) =>
+      'https://www.ejemplo.com/$index.svg';
 }

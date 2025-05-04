@@ -46,6 +46,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   sizer: ^3.0.5
   shimmer: ^3.0.0
+  animate_do: ^4.2.0
 
 dev_dependencies:
   flutter_test:

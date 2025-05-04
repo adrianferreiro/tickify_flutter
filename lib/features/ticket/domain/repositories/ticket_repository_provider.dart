@@ -8,7 +8,7 @@ import 'package:tickify_flutter/features/ticket/domain/repositories/ticket_repos
 ///
 final ticketRepositoryProvider = Provider<TicketRepository>((ref) {
   final dataSource = ref.read(ticketDatasourceProvider);
-  final pokedexRepositoryImpl = TicketRepositoryImpl(dataSource: dataSource);
+  final ticketRepositoryImpl = TicketRepositoryImpl(dataSource: dataSource);
 
-  return pokedexRepositoryImpl;
+  return ticketRepositoryImpl;
 });

@@ -1,5 +1,5 @@
 class Strings {
-  static const appName = 'PokeApp';
+  static const appName = 'Tickify';
 
   static const retry = 'Retry';
 }

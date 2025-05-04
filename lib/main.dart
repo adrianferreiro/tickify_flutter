@@ -1,17 +1,27 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:sizer/sizer.dart';
 import 'package:tickify_flutter/validator/firebase_check.dart';
+
+import 'package:tickify_flutter/config/routes/router.dart';
 // import 'package:mobile_scanner_example/screens/mobile_scanner_advanced.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(); // Inicializa Firebase
   runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Tickify',
-      home: _ExampleHome(),
+    ProviderScope(
+      child: Sizer(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp.router(
+            routerConfig: AppRouter.routes,
+            debugShowCheckedModeBanner: false,
+            title: 'Tickify',
+          );
+        },
+      ),
     ),
   );
 }
@@ -87,8 +97,10 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
 }
 
 /// Homepage for example app with selection between basic and advanced screen.
-class _ExampleHome extends StatelessWidget {
-  const _ExampleHome();
+class ExampleHome extends StatelessWidget {
+  static const name = 'example-screen';
+  static const path = '/example';
+  const ExampleHome({super.key});
   Widget _buildItem(
     BuildContext context,
     String label,
