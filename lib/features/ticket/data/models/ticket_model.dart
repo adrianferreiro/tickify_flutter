@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class TicketModel {
   final String id;
   final String name;
@@ -7,7 +9,7 @@ class TicketModel {
   final bool attended;
   final String eventId;
 
-  TicketModel({
+  const TicketModel({
     required this.id,
     required this.name,
     required this.surname,
@@ -19,13 +21,13 @@ class TicketModel {
 
   factory TicketModel.fromJson(Map<String, dynamic> json) {
     return TicketModel(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      surname: json['surname'] as String,
-      email: json['email'] as String,
-      identifier: json['identifier'] as String,
-      attended: json['attended'] as bool,
-      eventId: json['eventId'] as String,
+      id: json['id'] ?? '',
+      name: json['name'] ?? '',
+      surname: json['surname'] ?? '',
+      email: json['email'] ?? '',
+      identifier: json['identifier'] ?? '',
+      attended: json['isAssistence'] ?? false,
+      eventId: json['eventId'] ?? '',
     );
   }
 
@@ -36,8 +38,13 @@ class TicketModel {
       'surname': surname,
       'email': email,
       'identifier': identifier,
-      'attended': attended,
+      'isAssistence': attended,
       'eventId': eventId,
     };
+  }
+
+  factory TicketModel.fromDocument(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>;
+    return TicketModel.fromJson({...data, 'id': doc.id});
   }
 }

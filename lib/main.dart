@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:sizer/sizer.dart';
+import 'package:tickify_flutter/core/theme/app_theme.dart';
 import 'package:tickify_flutter/validator/firebase_check.dart';
 
 import 'package:tickify_flutter/config/routes/router.dart';
@@ -19,6 +20,7 @@ void main() async {
             routerConfig: AppRouter.routes,
             debugShowCheckedModeBanner: false,
             title: 'Tickify',
+            theme: getDarkTheme(),
           );
         },
       ),
@@ -72,7 +74,6 @@ class _MobileScannerSimpleState extends State<MobileScannerSimple> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Validar')),
-      backgroundColor: Colors.black,
       body: Stack(
         children: [
           MobileScanner(onDetect: _handleBarcode),
@@ -154,7 +155,6 @@ class ExampleHome extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
         elevation: 0,
       ),
       body: Container(

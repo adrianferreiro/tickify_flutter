@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final Color primaryColor = Colors.deepPurple;
+final Color primaryColor = Colors.blueAccent;
 
 ThemeData getLightTheme() {
   final colorScheme = ColorScheme.fromSeed(

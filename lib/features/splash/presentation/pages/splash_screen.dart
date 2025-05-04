@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:tickify_flutter/core/styles/app_colors.dart';
 import 'package:tickify_flutter/core/styles/assets.dart';
 import 'package:tickify_flutter/features/splash/presentation/providers/splash_notifier_provider.dart';
 import 'package:tickify_flutter/main.dart';
@@ -23,7 +22,6 @@ class SplashScreen extends ConsumerWidget {
     });
 
     return Scaffold(
-      backgroundColor: AppColors.shadow,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

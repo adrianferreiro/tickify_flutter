@@ -7,7 +7,7 @@ class TicketEntity {
   final bool attended;
   final String eventId;
 
-  TicketEntity({
+  const TicketEntity({
     required this.id,
     required this.name,
     required this.surname,
