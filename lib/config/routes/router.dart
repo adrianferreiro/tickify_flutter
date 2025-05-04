@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:tickify_flutter/features/splash/presentation/pages/splash_screen.dart';
-import 'package:tickify_flutter/main.dart';
+import 'package:tickify_flutter/features/validator/presentation/screens/screens.dart';
 
 class AppRouter {
   static final GoRouter _routes = GoRouter(
-    initialLocation: '/splash_page',
+    initialLocation: SplashScreen.path,
     routes: [
       GoRoute(
         path: SplashScreen.path,
@@ -12,9 +12,9 @@ class AppRouter {
         builder: (_, __) => const SplashScreen(),
       ),
       GoRoute(
-        path: ExampleHome.path,
-        name: ExampleHome.name,
-        builder: (_, __) => const ExampleHome(),
+        path: ValidatorScreen.path,
+        name: ValidatorScreen.name,
+        builder: (_, __) => const ValidatorScreen(),
         routes: [
           // GoRoute(
           //   path: PokemonDetailPage.routePath,
