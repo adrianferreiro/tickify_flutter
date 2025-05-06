@@ -18,7 +18,7 @@ class ValidatorScreen extends StatelessWidget {
           child: Text(Strings.appName),
         ),
       ),
-      body: ButtonScanQr(),
+      body: ScanQrCard(),
     );
   }
 }

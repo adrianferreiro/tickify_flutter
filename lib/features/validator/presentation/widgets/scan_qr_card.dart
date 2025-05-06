@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tickify_flutter/core/styles/assets.dart';
+import 'package:tickify_flutter/features/validator/presentation/screens/screens.dart';
 
-class ButtonScanQr extends StatelessWidget {
-  const ButtonScanQr({super.key});
+class ScanQrCard extends StatelessWidget {
+  const ScanQrCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,10 @@ class ButtonScanQr extends StatelessWidget {
         animate: true,
         duration: const Duration(seconds: 1),
         child: GestureDetector(
-          onTap: () {}, // opcional
+          onTap: () {
+            String location = '${ValidatorScreen.path}${ScannerScreen.path}';
+            context.push(location);
+          }, // opcional
           child: Card(
             child: Padding(
               padding: const EdgeInsets.all(15.0),
