@@ -28,74 +28,74 @@ void main() async {
   );
 }
 
-/// Implementation of Mobile Scanner example with simple configuration
-class MobileScannerSimple extends StatefulWidget {
-  /// Constructor for simple Mobile Scanner example
-  const MobileScannerSimple({super.key});
+// /// Implementation of Mobile Scanner example with simple configuration
+// class MobileScannerSimple extends StatefulWidget {
+//   /// Constructor for simple Mobile Scanner example
+//   const MobileScannerSimple({super.key});
 
-  @override
-  State<MobileScannerSimple> createState() => _MobileScannerSimpleState();
-}
+//   @override
+//   State<MobileScannerSimple> createState() => _MobileScannerSimpleState();
+// }
 
-class _MobileScannerSimpleState extends State<MobileScannerSimple> {
-  Barcode? _barcode;
+// class _MobileScannerSimpleState extends State<MobileScannerSimple> {
+//   Barcode? _barcode;
 
-  Widget _barcodePreview(Barcode? value) {
-    if (value == null) {
-      return const Text(
-        'Scan something!',
-        overflow: TextOverflow.fade,
-        style: TextStyle(color: Colors.white),
-      );
-    }
+//   Widget _barcodePreview(Barcode? value) {
+//     if (value == null) {
+//       return const Text(
+//         'Scan something!',
+//         overflow: TextOverflow.fade,
+//         style: TextStyle(color: Colors.white),
+//       );
+//     }
 
-    return Text(
-      value.displayValue ?? 'No display value.',
-      overflow: TextOverflow.fade,
-      style: const TextStyle(color: Colors.white),
-    );
-  }
+//     return Text(
+//       value.displayValue ?? 'No display value.',
+//       overflow: TextOverflow.fade,
+//       style: const TextStyle(color: Colors.white),
+//     );
+//   }
 
-  void _handleBarcode(BarcodeCapture barcodes) {
-    final uid = barcodes.barcodes.firstOrNull?.rawValue;
-    // print(uid);
+//   void _handleBarcode(BarcodeCapture barcodes) {
+//     final uid = barcodes.barcodes.firstOrNull?.rawValue;
+//     // print(uid);
 
-    if (uid != null && context.mounted) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => FirebaseUpdateStatusScreen(id: uid),
-        ),
-      );
-    }
-  }
+//     if (uid != null && context.mounted) {
+//       Navigator.push(
+//         context,
+//         MaterialPageRoute(
+//           builder: (context) => FirebaseUpdateStatusScreen(id: uid),
+//         ),
+//       );
+//     }
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Validar')),
-      body: Stack(
-        children: [
-          MobileScanner(onDetect: _handleBarcode),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              alignment: Alignment.bottomCenter,
-              height: 100,
-              color: const Color.fromRGBO(0, 0, 0, 0.4),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(child: Center(child: _barcodePreview(_barcode))),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: const Text('Validar')),
+//       body: Stack(
+//         children: [
+//           MobileScanner(onDetect: _handleBarcode),
+//           Align(
+//             alignment: Alignment.bottomCenter,
+//             child: Container(
+//               alignment: Alignment.bottomCenter,
+//               height: 100,
+//               color: const Color.fromRGBO(0, 0, 0, 0.4),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                 children: [
+//                   Expanded(child: Center(child: _barcodePreview(_barcode))),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 /// Homepage for example app with selection between basic and advanced screen.
 class ExampleHome extends StatelessWidget {
@@ -166,37 +166,21 @@ class ExampleHome extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              const SizedBox(height: 20),
-              _buildItem(
-                context,
-                'Validar entrada',
-                'Asistencia Debatech',
-                const MobileScannerSimple(),
-                Icons.qr_code_scanner,
-              ),
-              // _buildItem(
-              //   context,
-              //   'Advanced Mobile Scanner',
-              //   'Example of an advanced mobile scanner instance with a '
-              //       'controller, and multiple control widgets.',
-              //   const MobileScannerAdvanced(),
-              //   Icons.settings_remote,
-              // ),
-              // TODO(juliansteenbakker): Fix picklist example
-              // _buildItem(
-              //   context,
-              //   'Mobile Scanner with Crosshair',
-              //  'Example of a mobile scanner instance with a crosshair, that '
-              //       'only detects barcodes which the crosshair hits.',
-              //   const BarcodeScannerPicklist(),
-              //   Icons.list,
-              // ),
-              const SizedBox(height: 20),
-            ],
-          ),
+          // child: ListView(
+          //   physics: const BouncingScrollPhysics(),
+          //   children: [
+          //     const SizedBox(height: 20),
+          //     _buildItem(
+          //       context,
+          //       'Validar entrada',
+          //       'Asistencia Debatech',
+          //       const MobileScannerSimple(),
+          //       Icons.qr_code_scanner,
+          //     ),
+
+          //     const SizedBox(height: 20),
+          //   ],
+          // ),
         ),
       ),
     );
