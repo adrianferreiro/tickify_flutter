@@ -21,9 +21,7 @@ class FirebaseDatasourceImpl extends TicketDatasource {
       if (!snapshot.exists) throw Exception('Ticket no encontrado');
 
       final data = snapshot.data()!;
-      return TicketModel.fromJson(
-        data,
-      ); // Asegúrate que tu modelo tenga fromJson
+      return TicketModel.fromJson(data);
     } catch (e) {
       throw Exception('Error validando ticket: $e');
     }

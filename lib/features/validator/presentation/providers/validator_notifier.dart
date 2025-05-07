@@ -26,8 +26,16 @@ class ValidatorNotifier extends StateNotifier<ValidatorState> {
         );
         break;
       case Right():
-        state = state.copyWith(isLoading: false, ticket: result.value);
+        state = state.copyWith(
+          isLoading: false,
+          ticket: result.value,
+          generalResponse: null,
+        );
         break;
     }
+  }
+
+  void resetState() {
+    state = ValidatorState.initial();
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:tickify_flutter/features/ticket/application/usecases/validate_ticket_usecase.dart';
 import 'package:tickify_flutter/features/validator/presentation/providers/validator_provider.dart';
 
 class ScannerScreen extends ConsumerWidget {
@@ -10,20 +12,24 @@ class ScannerScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    void handleBarcode(BarcodeCapture capture) {
-      final uid = capture.barcodes.firstOrNull?.rawValue;
-      if (uid != null) {
-        // ref.read(validatorProvider.notifier).validateQr(uid);
-      }
-    }
+    final hasHandled = ValueNotifier(false); //evita múltiples reacciones
 
     ref.listen(validatorProvider, (previous, next) {
+      if (hasHandled.value) return;
+
       if (next.ticket != null) {
+        hasHandled.value = true;
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('✅ Bienvenido ${next.ticket!.name}')),
         );
-        Navigator.pop(context); // salir de la pantalla del escáner
+
+        if (context.canPop()) {
+          context.pop();
+        }
       } else if (next.generalResponse?.ok == false) {
+        hasHandled.value = true;
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('❌ ${next.generalResponse?.message ?? "Error"}'),
@@ -31,6 +37,15 @@ class ScannerScreen extends ConsumerWidget {
         );
       }
     });
+
+    void handleBarcode(BarcodeCapture capture) {
+      final uid = capture.barcodes.firstOrNull?.rawValue;
+      if (uid != null) {
+        ref
+            .read(validatorProvider.notifier)
+            .validateTicket(params: ValidateTicketParams(uid: uid));
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(title: const Text('Escanear QR')),
