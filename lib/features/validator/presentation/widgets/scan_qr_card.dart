@@ -12,6 +12,7 @@ class ScanQrCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textStyle = Theme.of(context).textTheme;
+
     return Center(
       child: FadeIn(
         animate: true,
@@ -24,14 +25,17 @@ class ScanQrCard extends ConsumerWidget {
           },
           child: Card(
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min, // 👈 clave
-                children: [
-                  Image.asset(Assets.logo),
-                  Text('Validar entrada', style: textStyle.titleLarge),
-                  Text('Debatech', style: textStyle.titleMedium),
-                ],
+              padding: const EdgeInsets.all(20.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(Assets.logo),
+                    Text('Validar entrada', style: textStyle.titleLarge),
+                    Text('Debatech', style: textStyle.titleMedium),
+                  ],
+                ),
               ),
             ),
           ),
