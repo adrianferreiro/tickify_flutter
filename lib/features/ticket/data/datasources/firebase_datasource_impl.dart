@@ -15,13 +15,12 @@ class FirebaseDatasourceImpl extends TicketDatasource {
       // Marcar asistencia
       await docRef.update({'isAssistence': true});
 
-      // Obtener los datos actualizados (opcional)
+      // Obtener los datos actualizados
       final snapshot = await docRef.get();
 
       if (!snapshot.exists) throw Exception('Ticket no encontrado');
 
-      final data = snapshot.data()!;
-      return TicketModel.fromJson(data);
+      return TicketModel.fromDocument(snapshot);
     } catch (e) {
       throw Exception('Error validando ticket: $e');
     }
