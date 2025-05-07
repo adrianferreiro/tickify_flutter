@@ -3,6 +3,7 @@ import 'package:tickify_flutter/features/ticket/data/datasources/ticket_datasour
 import 'package:tickify_flutter/features/ticket/data/models/ticket_model.dart';
 
 class FirebaseDatasourceImpl extends TicketDatasource {
+  //TODO: Change name to FirebaseTicketDatasourceImpl
   final FirebaseFirestore _firestore;
 
   FirebaseDatasourceImpl(this._firestore);
