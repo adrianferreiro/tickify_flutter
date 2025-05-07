@@ -19,13 +19,13 @@ class ValidatorScreen extends StatelessWidget {
         title: FadeIn(
           animate: true,
           duration: const Duration(seconds: 2),
-          child: Text(Strings.appName),
+          child: const Text(Strings.appName),
         ),
       ),
       body: Center(
         child: SizedBox(
           width: size.width * 0.8,
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 10,
             children: [ScanQrCard(), _BuildBody()],
@@ -67,11 +67,11 @@ class _BuildBody extends ConsumerWidget {
     });
 
     if (isLoading) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
     if (ticket != null) {
       return TikcetCard(ticket: ticket);
     }
-    return SizedBox();
+    return const SizedBox();
   }
 }

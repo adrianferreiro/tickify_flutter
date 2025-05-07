@@ -19,7 +19,7 @@ class AppRouter {
           GoRoute(
             path: ScannerScreen.path,
             name: ScannerScreen.name,
-            builder: (_, state) => ScannerScreen(),
+            builder: (_, state) => const ScannerScreen(),
           ),
         ],
       ),

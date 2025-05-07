@@ -19,7 +19,7 @@ ThemeData getLightTheme() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 16),
       ),
     ),
     filledButtonTheme: FilledButtonThemeData(
@@ -28,7 +28,7 @@ ThemeData getLightTheme() {
         padding: const EdgeInsets.symmetric(vertical: 16),
       ),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodySmall: TextStyle(color: Colors.black),
       bodyMedium: TextStyle(color: Colors.black54),
       bodyLarge: TextStyle(color: Colors.black54),
@@ -42,19 +42,19 @@ ThemeData getLightTheme() {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.pinkAccent),
+        borderSide: const BorderSide(color: Colors.pinkAccent),
       ),
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Colors.black, // Button background color
       textTheme: ButtonTextTheme.primary,
     ),
     dropdownMenuTheme: DropdownMenuThemeData(
       menuStyle: MenuStyle(
-        elevation: WidgetStatePropertyAll(5),
+        elevation: const WidgetStatePropertyAll(5),
         backgroundColor: WidgetStatePropertyAll(Colors.pink[100]),
         alignment: AlignmentDirectional.bottomStart.add(
-          AlignmentDirectional(0, 0.2),
+          const AlignmentDirectional(0, 0.2),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -83,7 +83,7 @@ ThemeData getDarkTheme() {
     colorScheme: colorScheme,
     primaryColor: Colors.pink,
     scaffoldBackgroundColor: Colors.grey[900],
-    appBarTheme: AppBarTheme(centerTitle: true),
+    appBarTheme: const AppBarTheme(centerTitle: true),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 16),
@@ -97,7 +97,7 @@ ThemeData getDarkTheme() {
         padding: const EdgeInsets.symmetric(vertical: 16),
       ),
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodySmall: TextStyle(color: Colors.white),
       bodyMedium: TextStyle(color: Colors.white70),
       bodyLarge: TextStyle(color: Colors.white70),
@@ -107,31 +107,31 @@ ThemeData getDarkTheme() {
       fillColor: Colors.grey[800],
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.pink),
+        borderSide: const BorderSide(color: Colors.pink),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.pinkAccent),
+        borderSide: const BorderSide(color: Colors.pinkAccent),
       ),
     ),
-    buttonTheme: ButtonThemeData(
+    buttonTheme: const ButtonThemeData(
       buttonColor: Colors.pink, // Button background color
       textTheme: ButtonTextTheme.primary,
     ),
     dropdownMenuTheme: DropdownMenuThemeData(
       menuStyle: MenuStyle(
-        elevation: WidgetStatePropertyAll(5),
-        backgroundColor: WidgetStatePropertyAll(Colors.black),
+        elevation: const WidgetStatePropertyAll(5),
+        backgroundColor: const WidgetStatePropertyAll(Colors.black),
         alignment: AlignmentDirectional.bottomStart.add(
-          AlignmentDirectional(0, 0.2),
+          const AlignmentDirectional(0, 0.2),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Color(0xFF494949),
+        fillColor: const Color(0xFF494949),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.white),
+          borderSide: const BorderSide(color: Colors.white),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
