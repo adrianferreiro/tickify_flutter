@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:tickify_flutter/features/splash/presentation/pages/splash_screen.dart';
+import 'package:tickify_flutter/features/events/presentation/screens/screens.dart';
 import 'package:tickify_flutter/features/validator/presentation/screens/screens.dart';
 
 class AppRouter {
@@ -10,6 +11,11 @@ class AppRouter {
         path: SplashScreen.path,
         name: SplashScreen.name,
         builder: (_, __) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: EventsScreen.path,
+        name: EventsScreen.name,
+        builder: (_, __) => const EventsScreen(),
       ),
       GoRoute(
         path: ValidatorScreen.path,
