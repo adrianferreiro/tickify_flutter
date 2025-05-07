@@ -1,1 +1,1 @@
-export 'button_scan_qr.dart';
+export 'scan_qr_card.dart';

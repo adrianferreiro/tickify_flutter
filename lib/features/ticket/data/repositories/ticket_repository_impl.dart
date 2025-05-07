@@ -11,7 +11,9 @@ class TicketRepositoryImpl implements TicketRepository {
   TicketRepositoryImpl({required this.dataSource});
 
   @override
-  Future<Either<Failure, TicketEntity>> validateTicket(String ticketId) async {
+  Future<Either<Failure, TicketEntity>> validateTicket({
+    required String ticketId,
+  }) async {
     try {
       final response = await dataSource.validateTicket(ticketId);
       return Right(response.toEntity());

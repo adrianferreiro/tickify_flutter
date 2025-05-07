@@ -16,11 +16,11 @@ class AppRouter {
         name: ValidatorScreen.name,
         builder: (_, __) => const ValidatorScreen(),
         routes: [
-          // GoRoute(
-          //   path: PokemonDetailPage.routePath,
-          //   name: PokemonDetailPage.routeName,
-          //   builder: (_, state) => PokemonDetailPage(),
-          // ),
+          GoRoute(
+            path: ScannerScreen.path,
+            name: ScannerScreen.name,
+            builder: (_, state) => ScannerScreen(),
+          ),
         ],
       ),
     ],
