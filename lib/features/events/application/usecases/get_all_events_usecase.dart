@@ -16,21 +16,18 @@ final getAllEventsUsecaseProvider = Provider((ref) {
 });
 
 ///
-/// [GetAllEventsUsecase] depends of [EventRepository] param injection for work
+/// [GetAllEventsUsecase] depends on [EventRepository] to fetch the data
 ///
-class GetAllEventsUsecase extends UseCase<EventEntity, GetAllEventsParams> {
+class GetAllEventsUsecase extends UseCase<List<EventEntity>, NoParams> {
   final EventRepository repository;
 
   GetAllEventsUsecase({required this.repository});
 
   @override
-  Future<Either<Failure, EventEntity>> call(params) {
+  Future<Either<Failure, List<EventEntity>>> call(NoParams params) {
     return repository.getAllEvents();
   }
 }
 
-class GetAllEventsParams {
-  final String uid;
-
-  GetAllEventsParams({required this.uid});
-}
+/// You can pass this when no parameters are needed
+class NoParams {}

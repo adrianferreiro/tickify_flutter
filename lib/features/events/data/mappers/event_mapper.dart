@@ -23,3 +23,9 @@ extension AgendaItemModelMapper on AgendaItemModel {
     return AgendaItem(time: time, topic: topic);
   }
 }
+
+extension EventModelListMapper on List<EventModel> {
+  List<EventEntity> toEntityList() {
+    return map((e) => e.toEntity()).toList();
+  }
+}

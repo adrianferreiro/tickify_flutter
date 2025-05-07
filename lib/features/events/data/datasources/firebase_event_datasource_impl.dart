@@ -8,7 +8,7 @@ class FirebaseEventDatasourceImpl implements EventDatasource {
   FirebaseEventDatasourceImpl(this._firestore);
 
   @override
-  Future<EventModel> getAllEvents() {
+  Future<List<EventModel>> getAllEvents() {
     // TODO: implement getAllEvents
     throw UnimplementedError();
   }
